@@ -218,11 +218,6 @@ public static partial class TextUtility {
             ) : (
                 GetDescription(episodeInfo, Plugin.Instance.Configuration.Description.Default, metadataLanguage)
             ),
-            SeriesStructureType.TMDB_SeriesAndMovies => Plugin.Instance.Configuration.Description.TmdbEpisode.Enabled ? (
-                GetDescription(episodeInfo, Plugin.Instance.Configuration.Description.TmdbEpisode, metadataLanguage)
-            ) : (
-                GetDescription(episodeInfo, Plugin.Instance.Configuration.Description.Default, metadataLanguage)
-            ),
             _ => Plugin.Instance.Configuration.Description.ShokoEpisode.Enabled ? (
                 GetDescription(episodeInfo, Plugin.Instance.Configuration.Description.ShokoEpisode, metadataLanguage)
             ) : (
@@ -244,11 +239,6 @@ public static partial class TextUtility {
             ) : (
                 GetDescription(seasonInfo, Plugin.Instance.Configuration.Description.Default, metadataLanguage)
             ),
-            SeriesStructureType.TMDB_SeriesAndMovies => Plugin.Instance.Configuration.Description.TmdbSeason.Enabled ? (
-                GetDescription(seasonInfo, Plugin.Instance.Configuration.Description.TmdbSeason, metadataLanguage)
-            ) : (
-                GetDescription(seasonInfo, Plugin.Instance.Configuration.Description.Default, metadataLanguage)
-            ),
             _ => Plugin.Instance.Configuration.Description.ShokoSeason.Enabled ? (
                 GetDescription(seasonInfo, Plugin.Instance.Configuration.Description.ShokoSeason, metadataLanguage)
             ) : (
@@ -264,11 +254,6 @@ public static partial class TextUtility {
         => showInfo.DefaultSeason.StructureType switch {
             SeriesStructureType.AniDB_Anime => Plugin.Instance.Configuration.Description.AnidbAnime.Enabled ? (
                 GetDescription(showInfo, Plugin.Instance.Configuration.Description.AnidbAnime, metadataLanguage)
-            ) : (
-                GetDescription(showInfo, Plugin.Instance.Configuration.Description.Default, metadataLanguage)
-            ),
-            SeriesStructureType.TMDB_SeriesAndMovies => Plugin.Instance.Configuration.Description.TmdbShow.Enabled ? (
-                GetDescription(showInfo, Plugin.Instance.Configuration.Description.TmdbShow, metadataLanguage)
             ) : (
                 GetDescription(showInfo, Plugin.Instance.Configuration.Description.Default, metadataLanguage)
             ),
@@ -297,11 +282,6 @@ public static partial class TextUtility {
 
     public static string GetCollectionDescription(SeasonInfo seasonInfo, string? metadataLanguage)
         => seasonInfo.StructureType switch {
-            SeriesStructureType.TMDB_SeriesAndMovies => Plugin.Instance.Configuration.Description.TmdbCollection.Enabled ? (
-                GetDescription(seasonInfo, Plugin.Instance.Configuration.Description.TmdbCollection, metadataLanguage)
-            ) : (
-                GetDescription(seasonInfo, Plugin.Instance.Configuration.Description.Default, metadataLanguage)
-            ),
             _ => Plugin.Instance.Configuration.Description.ShokoCollection.Enabled ? (
                 GetDescription(seasonInfo, Plugin.Instance.Configuration.Description.ShokoCollection, metadataLanguage)
             ) : (
@@ -435,9 +415,6 @@ public static partial class TextUtility {
             SeriesStructureType.AniDB_Anime => Plugin.Instance.Configuration.Title.AnidbEpisode.Enabled
                 ? Plugin.Instance.Configuration.Title.AnidbEpisode
                 : Plugin.Instance.Configuration.Title.Default,
-            SeriesStructureType.TMDB_SeriesAndMovies => Plugin.Instance.Configuration.Title.TmdbEpisode.Enabled
-                ? Plugin.Instance.Configuration.Title.TmdbEpisode
-                : Plugin.Instance.Configuration.Title.Default,
             _ => Plugin.Instance.Configuration.Title.ShokoEpisode.Enabled
                 ? Plugin.Instance.Configuration.Title.ShokoEpisode
                 : Plugin.Instance.Configuration.Title.Default,
@@ -485,9 +462,6 @@ public static partial class TextUtility {
             SeriesStructureType.AniDB_Anime => Plugin.Instance.Configuration.Title.AnidbSeason.Enabled
                 ? Plugin.Instance.Configuration.Title.AnidbSeason
                 : Plugin.Instance.Configuration.Title.Default,
-            SeriesStructureType.TMDB_SeriesAndMovies => Plugin.Instance.Configuration.Title.TmdbSeason.Enabled
-                ? Plugin.Instance.Configuration.Title.TmdbSeason
-                : Plugin.Instance.Configuration.Title.Default,
             _ => Plugin.Instance.Configuration.Title.ShokoSeason.Enabled
                 ? Plugin.Instance.Configuration.Title.ShokoSeason
                 : Plugin.Instance.Configuration.Title.Default,
@@ -522,9 +496,6 @@ public static partial class TextUtility {
         var config = showInfo.DefaultSeason.StructureType switch {
             SeriesStructureType.AniDB_Anime => Plugin.Instance.Configuration.Title.AnidbAnime.Enabled
                 ? Plugin.Instance.Configuration.Title.AnidbAnime
-                : Plugin.Instance.Configuration.Title.Default,
-            SeriesStructureType.TMDB_SeriesAndMovies => Plugin.Instance.Configuration.Title.TmdbShow.Enabled
-                ? Plugin.Instance.Configuration.Title.TmdbShow
                 : Plugin.Instance.Configuration.Title.Default,
             _ => Plugin.Instance.Configuration.Title.ShokoSeries.Enabled
                 ? Plugin.Instance.Configuration.Title.ShokoSeries
@@ -572,9 +543,6 @@ public static partial class TextUtility {
             SeriesStructureType.AniDB_Anime => Plugin.Instance.Configuration.Title.AnidbSeason.Enabled
                 ? Plugin.Instance.Configuration.Title.AnidbSeason
                 : Plugin.Instance.Configuration.Title.Default,
-            SeriesStructureType.TMDB_SeriesAndMovies => Plugin.Instance.Configuration.Title.TmdbSeason.Enabled
-                ? Plugin.Instance.Configuration.Title.TmdbSeason
-                : Plugin.Instance.Configuration.Title.Default,
             _ => Plugin.Instance.Configuration.Title.ShokoSeason.Enabled
                 ? Plugin.Instance.Configuration.Title.ShokoSeason
                 : Plugin.Instance.Configuration.Title.Default,
@@ -605,9 +573,6 @@ public static partial class TextUtility {
 
     public static (string? displayTitle, string? alternateTitle) GetCollectionTitles(SeasonInfo seasonInfo, string? metadataLanguage) {
         var config = seasonInfo.StructureType switch {
-            SeriesStructureType.TMDB_SeriesAndMovies => Plugin.Instance.Configuration.Title.TmdbCollection.Enabled
-                ? Plugin.Instance.Configuration.Title.TmdbCollection
-                : Plugin.Instance.Configuration.Title.Default,
             _ => Plugin.Instance.Configuration.Title.ShokoCollection.Enabled
                 ? Plugin.Instance.Configuration.Title.ShokoCollection
                 : Plugin.Instance.Configuration.Title.Default,
